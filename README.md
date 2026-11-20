@@ -1,93 +1,52 @@
-# Phase 2 Code Challenge: Plantsy
+# Plantsy
 
-## Demo
+Plantsy is a small plant shop admin app built with React and Vite. It displays
+plants from a JSON Server API and lets you add plants, mark them as sold out,
+and filter the list by name.
 
-Use this gif as an example of how the app should work.
+![Plantsy app demo](./demo.gif)
 
-![Demo GIF](./demo.gif)
+## Features
 
-## Instructions
+- Loads the plant catalog from the backend when the app opens.
+- Adds plants through the form and saves them to the backend.
+- Marks plants as sold out for the current page session.
+- Filters plants by name as you type; clearing the search restores the full list.
 
-Welcome to Plantsy! You've been tasked with building out some features for the
-admin side of a plant store. The designers have put together the components and
-CSS. Now it's up to you to bring the features to life by adding stateful logic
-as well as persisting data to the backend via our API.
+## Requirements
 
-Your job will be to make our app work according to the user stories you will
-find the [Deliverables](#Deliverables) section.
+- Node.js and npm
 
-## Setup
+## Run locally
 
-1. Run `npm install` in your terminal.
-2. Run `npm run server`. This will run your backend on port `6001`.
-3. In a new terminal, run `npm run dev`.
+Install dependencies:
 
-Make sure to open [http://localhost:6001/plants](http://localhost:6001/plants)
-in the browser to verify that your backend is working before you proceed!
-
-## Endpoints
-
-The base URL for your backend is: `http://localhost:6001`
-
-## Deliverables
-
-As a user:
-
-1. When the app starts, I can see all plants.
-2. I can add a new plant to the page by submitting the form.
-3. I can mark a plant as "sold out".
-4. I can search for plants by their name and see a filtered list of plants.
-
-### Endpoints for Core Deliverables
-
-#### GET /plants
-
-Example Response:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Aloe",
-    "image": "./images/aloe.jpg",
-    "price": 15.99
-  },
-  {
-    "id": 2,
-    "name": "ZZ Plant",
-    "image": "./images/zz-plant.jpg",
-    "price": 25.98
-  }
-]
+```sh
+npm install
 ```
 
-#### POST `/plants`
+In separate terminals, start the API and frontend:
 
-Required Headers:
-
-```js
-{
-  "Content-Type": "application/json"
-}
+```sh
+npm run server
 ```
 
-Request Object:
-
-```json
-{
-  "name": "string",
-  "image": "string",
-  "price": number
-}
+```sh
+npm run dev
 ```
 
-Example Response:
+Open the local URL printed by Vite (typically http://localhost:5173). The API
+is available at http://localhost:6001/plants.
 
-```json
-{
-  "id": 1,
-  "name": "Aloe",
-  "image": "./images/aloe.jpg",
-  "price": 15.99
-}
+## API
+
+The app uses the JSON Server endpoint `http://localhost:6001/plants`:
+
+- `GET /plants` loads all plants.
+- `POST /plants` creates a plant with `name`, `image`, and `price` fields.
+
+## Tests
+
+```sh
+npm run test
 ```
