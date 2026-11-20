@@ -1,5 +1,91 @@
-/* TODO (optional): Style the product card container */
+.card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+}
 
-/* TODO (optional): Add special styling for out-of-stock products */
+.outOfStock {
+  background: var(--surface-muted);
+}
 
-/* TODO (optional): Style the add/remove button */
+.productIcon {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--surface-muted);
+  font-size: 1.7rem;
+}
+
+.details {
+  min-width: 0;
+  flex: 1;
+}
+
+.category {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.details h3 {
+  margin: 2px 0;
+  font-size: 1.05rem;
+}
+
+.status {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.purchase {
+  display: grid;
+  justify-items: end;
+  gap: 8px;
+}
+
+.price {
+  margin: 0;
+  font-weight: 700;
+}
+
+.addButton {
+  padding: 9px 12px;
+  color: #fff;
+  background: #287348;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.addButton:hover {
+  background: #1d5e39;
+}
+
+:global(.app--dark) .addButton {
+  color: #17211b;
+  background: #83c99a;
+}
+
+:global(.app--dark) .addButton:hover {
+  background: #a0d9af;
+}
+
+@media (max-width: 520px) {
+  .card {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .purchase {
+    width: 100%;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+}
